@@ -1,0 +1,231 @@
+.invitation-cover {
+  --cover-gold: #dfc493;
+  --cover-paper: #f4e6d0;
+  --cover-paper-dark: #dbc3a0;
+  --cover-ink: #54392d;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  isolation: isolate;
+  color: #fff5e8;
+  background: var(--accent-dark, #21150f);
+  -webkit-overflow-scrolling: touch;
+}
+.invitation-cover *, .invitation-cover *::before, .invitation-cover *::after { box-sizing: border-box; }
+.invitation-cover[data-opening-phase="opening"] { pointer-events: none; }
+.cover-backdrop, .cover-photo, .cover-shade, .cover-panels { position: absolute; inset: 0; }
+.cover-photo { background-size: cover; opacity: .3; }
+.cover-shade { background: linear-gradient(180deg, #20130fc7, #24150f75 50%, #20130fce); }
+.cover-backdrop::after { content: ''; position: absolute; inset: 14px; border: 1px solid #dfc4934d; pointer-events: none; }
+.invitation-cover--palembang { --cover-paper: #772b40; --cover-paper-dark: #4d1829; --cover-ink: #f9e6c2; --cover-gold: #edcf94; }
+.invitation-cover--palembang .cover-shade { background: linear-gradient(180deg, #3e0d22ed, #5f2137a6, #3e0d22ed); }
+.invitation-cover--sunda .cover-shade { background: linear-gradient(180deg, #1d3829e8, #34533cbc, #1d3829ed); }
+.invitation-cover--mix .cover-shade { background: linear-gradient(100deg, #604734ed, #3b5745ed); }
+.invitation-cover-body {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 560px);
+  min-height: 100%;
+  margin: 0 auto;
+  padding: max(76px, calc(env(safe-area-inset-top) + 64px)) 28px max(32px, calc(env(safe-area-inset-bottom) + 24px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.invitation-back {
+  position: fixed;
+  top: max(12px, calc(env(safe-area-inset-top) + 8px));
+  left: max(12px, calc(env(safe-area-inset-left) + 8px));
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 15px;
+  border: 1px solid #d6c3af;
+  border-radius: 30px;
+  background: #fff9eff5;
+  color: #3a2c26;
+  font: 600 11px/1.3 var(--font-invitation-sans), Arial, sans-serif;
+  transition: background .2s;
+}
+.invitation-back:hover { background: #fff; }
+.invitation-back:focus-visible, .cover-open-button:focus-visible { outline: 2px solid var(--cover-gold, #b8955a); outline-offset: 5px; }
+.cover-eyebrow { margin: 0 0 28px; color: #e8d7b8; font-size: 9px; font-weight: 600; line-height: 1.6; letter-spacing: .18em; }
+.cover-art { flex-shrink: 0; width: 100%; }
+.cover-kicker { margin: 0 0 9px; font: 600 9px/1.5 var(--font-invitation-sans), Arial, sans-serif; letter-spacing: .2em; }
+.cover-names { margin: 0; font: 500 clamp(38px, 10.5vw, 58px)/1.02 var(--font-invitation-serif), Georgia, serif; }
+.cover-names span { font-style: italic; font-weight: 400; }
+.cover-date { margin: 15px 0 0; font: 500 10px/1.5 var(--font-invitation-sans), Arial, sans-serif; letter-spacing: .15em; }
+.cover-guest { max-width: 380px; margin: 27px 0 20px; }
+.cover-guest p { margin: 0 0 7px; font-size: 11px; line-height: 1.7; color: #eadfcf; }
+.cover-guest strong { display: block; overflow-wrap: anywhere; font: 500 25px/1.2 var(--font-invitation-serif), Georgia, serif; }
+.cover-open-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 52px;
+  min-width: 216px;
+  max-width: 100%;
+  padding: 12px 22px;
+  border: 1px solid #e9d2aa;
+  border-radius: 999px;
+  background: #e5cfaa;
+  color: #382c20;
+  font: 600 13px/1.4 var(--font-invitation-sans), Arial, sans-serif;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.cover-open-button:hover { background: #f2e1c4; }
+.cover-open-button:disabled { cursor: wait; }
+.cover-note { margin: 15px 0 0; color: #e0d3c0; font-size: 10px; line-height: 1.7; }
+.envelope-scene { max-width: 380px; padding-top: 9px; perspective: 1200px; }
+.envelope { position: relative; width: 100%; aspect-ratio: 1.24; }
+.envelope-base {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background: var(--cover-paper-dark);
+  box-shadow: 0 24px 50px #130a0738;
+}
+.envelope-letter {
+  position: absolute;
+  inset: 6% 6% 5%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #be9b63;
+  border-radius: 3px;
+  background: #fff8e9;
+  color: #614432;
+  opacity: 0;
+}
+.envelope-letter::before { content: ''; position: absolute; inset: 8px; border: 1px solid #b9955b57; }
+.envelope-letter .cover-names { font-size: clamp(34px, 9vw, 48px); }
+.envelope-letter-motif { margin-bottom: 12px; font: 42px/1 Georgia, serif; color: #ad8250; }
+.envelope-pocket { position: absolute; inset: 0; z-index: 2; overflow: hidden; border-radius: 6px; }
+.envelope-pocket::before, .envelope-pocket::after { content: ''; position: absolute; inset: 0; background: var(--cover-paper); }
+.envelope-pocket::before { clip-path: polygon(0 0, 50% 54%, 100% 0, 100% 100%, 0 100%); background: linear-gradient(100deg, var(--cover-paper-dark), var(--cover-paper) 48%, var(--cover-paper-dark)); }
+.envelope-pocket::after { clip-path: polygon(0 100%, 50% 42%, 100% 100%); background: linear-gradient(0deg, var(--cover-paper), var(--cover-paper-dark)); }
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  z-index: 5;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(180deg, var(--cover-paper), var(--cover-paper-dark));
+  transform-origin: center top;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.envelope-seal {
+  position: absolute;
+  top: 43%;
+  left: calc(50% - 23px);
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 3px double #efd49a8a;
+  border-radius: 50%;
+  background: #a77c43;
+  box-shadow: 0 3px 8px #4a261e38;
+  color: #fff0cc;
+  font: 25px/1 Georgia, serif;
+}
+.envelope-address { position: absolute; inset: 62% 9% auto; z-index: 4; color: var(--cover-ink); }
+.envelope-address .cover-kicker { font-size: 7px; letter-spacing: .16em; margin-bottom: 4px; }
+.envelope-address .cover-names { font-size: clamp(31px, 8.5vw, 44px); white-space: nowrap; }
+.envelope-address .cover-date { font-size: 8px; margin-top: 9px; }
+.cover-card { position: relative; max-width: 370px; padding: 33px 26px; border: 1px solid #d6cca36b; }
+.cover-card .cover-names { max-width: 270px; margin: auto; font-size: clamp(49px, 13vw, 75px); }
+.cover-card .cover-names span { display: block; margin: 4px 0; font-size: .48em; color: #dbc597; }
+.cover-motif { display: block; margin-bottom: 18px; color: #d8cfb0; font: 66px/1 Georgia, serif; }
+.cover-flourish { position: absolute; width: 84px; color: #d5c9a7; opacity: .45; pointer-events: none; }
+.cover-flourish-top { top: -12px; right: -12px; transform: rotate(180deg); }
+.cover-flourish-bottom { bottom: -12px; left: -12px; }
+.invitation-cover--sunda .cover-card { border-radius: 140px 140px 8px 8px; padding-top: 40px; }
+.invitation-cover--sunda .cover-open-button { background: #e6ead6; border-color: #f0f2e7; color: #344b39; }
+.cover-panel { position: absolute; top: 0; bottom: 0; width: 50%; overflow: hidden; }
+.cover-panel::before { content: ''; position: absolute; inset: 15px; border: 1px solid #dbc5a745; }
+.cover-panel-left { left: 0; background: linear-gradient(110deg, #5a4030, #775844); border-right: 1px solid #dbb4806b; }
+.cover-panel-right { right: 0; background: linear-gradient(110deg, #45644d, #2e4a37); border-left: 1px solid #b5c59f6b; }
+.cover-panel-flourish { position: absolute; width: min(80%, 280px); top: 24%; color: #dcc293; opacity: .2; }
+.cover-panel-left .cover-panel-flourish { left: -5%; }
+.cover-panel-right .cover-panel-flourish { right: -5%; transform: scaleX(-1); color: #c9d7b5; }
+.invitation-cover--gate { background: transparent; }
+.invitation-cover--gate .cover-card { background: #231b172e; border-color: #efdbc15e; }
+.keraton-cover { --cover-gold: #c9a665; background: transparent; }
+.keraton-door { position: absolute; inset-block: 0; width: 50%; overflow: hidden; background: linear-gradient(90deg, #100c09, #2d1d13 85%, #342316); }
+.keraton-door::before { content: ''; position: absolute; inset: 14px; border: 1px solid #b8955a33; }
+.keraton-door-left { left: 0; border-right: 1px solid #b8955a55; }
+.keraton-door-right { right: 0; transform: none; background: linear-gradient(90deg, #342316, #2d1d13 15%, #100c09); border-left: 1px solid #b8955a55; }
+.keraton-cover .opening-content { min-height: 100%; height: auto; max-width: 680px; padding: max(76px, calc(env(safe-area-inset-top) + 64px)) 34px max(32px, calc(env(safe-area-inset-bottom) + 24px)); }
+.keraton-cover .opening-name { font-size: clamp(46px, 12.5vw, 64px); }
+.keraton-mark { width: auto; height: clamp(78px, 17svh, 140px); margin-top: 12px; }
+.keraton-cover .opening-button { min-height: 52px; min-width: 220px; border-radius: 999px; font-size: 12px; letter-spacing: .1em; padding: 12px 24px; background: #b8955a; border-color: #d6b67a; color: #21150f; }
+.keraton-cover .opening-button:focus-visible { outline: 2px solid #e0c493; outline-offset: 5px; }
+.keraton-cover .opening-guest > p:first-child { font-size: 10px; line-height: 1.5; }
+.keraton-cover .opening-guest > p:last-child { font-size: 22px; line-height: 1.2; overflow-wrap: anywhere; }
+.keraton-cover .opening-quote { max-width: 310px; font-size: 14px; }
+.keraton-cover .opening-frame, .keraton-cover .opening-footline { pointer-events: none; }
+.invitation-main:focus { outline: none; }
+
+@media (min-width: 768px) {
+  .invitation-cover-body { max-width: 620px; padding-inline: 52px; }
+  .cover-eyebrow { font-size: 10px; margin-bottom: 35px; }
+  .envelope-scene { max-width: 420px; }
+  .cover-card { max-width: 430px; padding-block: 38px; }
+  .cover-card .cover-names { font-size: 82px; }
+  .cover-guest strong { font-size: 30px; }
+  .cover-guest p { font-size: 12px; }
+  .invitation-back { top: max(20px, calc(env(safe-area-inset-top) + 12px)); left: max(20px, calc(env(safe-area-inset-left) + 12px)); }
+  .keraton-cover .opening-name { font-size: clamp(65px, 7vw, 88px); }
+  .keraton-mark { height: clamp(100px, 19svh, 180px); }
+}
+@media (max-height: 700px) {
+  .invitation-cover-body { padding-top: max(68px, calc(env(safe-area-inset-top) + 58px)); padding-bottom: max(22px, calc(env(safe-area-inset-bottom) + 16px)); }
+  .cover-eyebrow { margin-bottom: 18px; font-size: 8px; }
+  .envelope-scene { max-width: min(100%, 330px); }
+  .cover-card { max-width: 320px; padding: 23px 20px; }
+  .cover-motif { font-size: 45px; margin-bottom: 12px; }
+  .cover-card .cover-names { font-size: 49px; }
+  .cover-guest { margin-top: 18px; margin-bottom: 15px; }
+  .cover-note { margin-top: 12px; }
+  .keraton-cover .opening-content { padding-top: 66px; padding-bottom: 23px; }
+  .keraton-cover .opening-name { font-size: 46px; }
+  .keraton-mark { height: 75px; margin-top: 6px; }
+  .keraton-cover .opening-guest { margin-top: 14px; }
+  .keraton-cover .opening-quote { font-size: 12px; }
+}
+@media (max-height: 460px) and (min-width: 600px) {
+  .invitation-cover-body { width: min(100%, 820px); display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; padding: 62px 44px 22px; }
+  .cover-eyebrow { grid-column: 1 / -1; margin-bottom: 10px; }
+  .cover-art { grid-column: 1; grid-row: 2 / 5; width: 100%; max-width: 265px; justify-self: center; }
+  .cover-card { padding: 18px; }
+  .cover-card .cover-names { font-size: 38px; }
+  .cover-motif { display: none; }
+  .cover-guest, .cover-open-button, .cover-note { grid-column: 2; justify-self: center; margin-block: 0; }
+  .cover-open-button { min-width: 200px; }
+  .cover-guest strong { font-size: 23px; }
+  .cover-guest p { font-size: 10px; }
+  .keraton-cover .opening-content { min-height: 100%; padding-top: 62px; padding-bottom: 16px; }
+  .keraton-cover .opening-kicker, .keraton-cover .opening-divider, .keraton-cover .opening-quote, .keraton-mark { display: none; }
+  .keraton-cover .opening-name { display: inline; font-size: 45px; }
+  .keraton-cover .opening-ampersand { display: inline; margin-inline: 12px; }
+  .keraton-cover .opening-button { margin-top: 14px; }
+  .keraton-cover .opening-guest { margin-top: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .invitation-cover *, .invitation-back { transition: none !important; }
+}

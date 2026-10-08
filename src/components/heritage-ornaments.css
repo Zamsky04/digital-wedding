@@ -1,0 +1,153 @@
+.heritage-ornament, .heritage-corner { display: block; flex-shrink: 0; pointer-events: none; }
+.heritage-ornament { width: min(260px, 80%); height: auto; margin: 20px auto; color: var(--heritage-gold, var(--accent, #ad8750)); }
+.heritage-ornament--emblem { width: 68px; }
+.heritage-decor { position: absolute; inset: 0; overflow: hidden; z-index: 0; color: var(--heritage-gold, var(--accent, #ad8750)); pointer-events: none; }
+.heritage-pattern { position: absolute; inset: 0; opacity: .08; mask-image: linear-gradient(to right, #000, transparent 30%, transparent 70%, #000); }
+.heritage-corner { position: absolute; width: clamp(82px, 20vw, 160px); opacity: .5; }
+.heritage-corner--start { left: 10px; top: 14px; }
+.heritage-corner--end { right: 10px; bottom: 14px; transform: rotate(180deg); }
+.heritage-portrait { --portrait-accent: var(--accent, #ae8a52); position: relative; isolation: isolate; margin: 50px auto 42px; padding: 8px; color: var(--portrait-accent); }
+.heritage-portrait::before { content: ''; position: absolute; inset: -1px; border: 1px solid currentColor; opacity: .45; border-radius: 48% 48% 8px 8px; z-index: -1; }
+.heritage-portrait-image { overflow: hidden; position: relative; border: 1px solid color-mix(in srgb, currentColor, transparent 40%); border-radius: 48% 48% 7px 7px; background: #dcc6a2; }
+.heritage-portrait .preview-person-photo { margin-bottom: 0; border-radius: 0; }
+.heritage-portrait-crown { position: absolute; width: 90%; max-width: none; margin: 0; top: -45px; left: 5%; z-index: 2; }
+.heritage-portrait .heritage-portrait-leaf { width: 95px; opacity: .95; bottom: -13px; z-index: 2; }
+.heritage-portrait-leaf--left { left: -22px; transform: rotate(-12deg); }
+.heritage-portrait-leaf--right { right: -22px; transform: scaleX(-1) rotate(-12deg); }
+.heritage-portrait-foot { position: absolute; width: 78%; bottom: -39px; left: 11%; z-index: 2; }
+.heritage-portrait-foot .heritage-ornament { width: 100%; margin: 0; }
+.heritage-portrait--palembang { --portrait-accent: #b28a43; }
+.heritage-portrait--palembang .heritage-portrait-image, .heritage-portrait--palembang::before { border-radius: 44% 44% 6px 6px; }
+.heritage-portrait--mix { --portrait-accent: #897c4f; }
+.heritage-portrait--sunda { --portrait-accent: #738463; }
+.preview-section { position: relative; isolation: isolate; }
+.preview-section > :not(.heritage-decor) { position: relative; z-index: 1; }
+.preview-hero > .heritage-decor, .preview-footer > .heritage-decor { z-index: 1; color: #e5cba0; }
+.preview-hero .heritage-corner { width: clamp(105px, 22vw, 230px); opacity: .7; }
+.preview-hero .heritage-corner--start { top: 28px; left: 24px; }
+.preview-hero .heritage-corner--end { bottom: 28px; right: 24px; }
+.preview-hero .preview-hero-content { z-index: 2; }
+.preview-hero-emblem { width: 75px; color: #efd5a7; margin: 26px auto 18px; }
+.preview--sunda .preview-hero-emblem { width: 66px; }
+.preview--mix .preview-hero-emblem { width: 100px; }
+.preview-heritage-story { width: 88px; margin: 24px auto; color: #e8c995; }
+.preview-story .heritage-decor, .preview-location .heritage-decor { color: #ebcfa1; }
+.preview-story::before { display: none; }
+.preview-divider { max-width: 280px; }
+.preview-divider::before, .preview-divider::after { display: none; }
+.preview-divider .heritage-ornament { width: 100%; margin: 0; }
+.preview-event-grid article { position: relative; border-radius: 70px 70px 4px 4px; background: color-mix(in srgb, var(--ivory), transparent 35%); }
+.preview-event-ornament { width: 110px; margin: 12px auto 6px; }
+.preview-footer { position: relative; isolation: isolate; }
+.preview-footer > :not(.heritage-decor) { position: relative; z-index: 2; }
+.preview-footer .heritage-ornament { color: #e8c995; }
+.preview-footer-emblem { width: 66px; }
+.preview-couple { margin-top: 50px; gap: 34px; }
+.preview--palembang .preview-intro { background: #fbf1e3; }
+.preview--palembang .preview-couple h3 { color: #681f37; }
+.preview--palembang .preview-events { border-block: 1px solid #c8a76d66; }
+.preview--sunda .preview-intro { background: #f3f4e9; }
+.preview--mix .preview-intro { background: linear-gradient(120deg, #f7ebdf, #f0f3e7); }
+.preview--mix .heritage-decor { color: #897c4f; }
+
+/* Keraton: carved wood, brass, batik, and a symmetrical gebyok composition. */
+.keraton-experience { --heritage-gold: #b59057; --keraton-paper: #f3e8d4; }
+.keraton-experience .invitation-main > section { isolation: isolate; }
+.keraton-experience .heritage-decor { z-index: 1; }
+.keraton-experience .reveal { position: relative; z-index: 2; }
+.keraton-experience .invitation-main > section:not(.keraton-hero):not(.keraton-couple) { border-bottom: 1px solid #b590571e; }
+.keraton-hero { position: relative; min-height: 100svh; overflow: hidden; background: #21170f; color: #f8ebd5; }
+.keraton-hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 76% center; opacity: .75; }
+.keraton-hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, #25170c38 0%, #25170c18 20%, #25170c70 48%, #21170ff2 85%); }
+.keraton-hero .heritage-decor { color: #dabc83; }
+.keraton-hero .heritage-pattern { opacity: .09; }
+.keraton-hero .heritage-corner { width: clamp(115px, 26vw, 210px); opacity: .65; }
+.keraton-hero-frame { position: absolute; inset: 15px; border: 1px solid #d3b77d6b; border-radius: 140px 140px 0 0; z-index: 1; pointer-events: none; }
+.keraton-hero-content { min-height: 100svh; width: min(100%, 700px); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: center; position: relative; z-index: 2; margin: auto; padding: 100px 34px max(54px, calc(env(safe-area-inset-bottom) + 40px)); }
+.keraton-hero-content .heritage-ornament { color: #dfc18d; }
+.keraton-hero-sigil { width: 65px; margin: 0 auto 14px; }
+.keraton-eyebrow { font: 500 9px/1.7 var(--font-body), Arial, sans-serif; letter-spacing: .23em; color: #e5cc9e; margin: 0 0 16px; }
+.keraton-hero-names { font: 400 clamp(47px, 13vw, 68px)/1 var(--font-romantic), Georgia, serif; margin: 0; text-wrap: balance; }
+.keraton-hero-names em { color: #d9b475; font-size: .7em; padding-inline: 5px; }
+.keraton-hero-phrase { font: italic 21px/1.5 var(--font-romantic), Georgia, serif; color: #e5c797; margin: 13px 0 3px; }
+.keraton-hero-date { font: 400 10px/1.8 var(--font-body), Arial, sans-serif; letter-spacing: .12em; margin: 10px 0; }
+.keraton-hero-content .heritage-ornament--divider { width: 180px; margin: 12px auto 6px; }
+.keraton-hero-guest { font: 400 9px/1.7 var(--font-body), Arial, sans-serif; letter-spacing: .06em; margin: 10px 0 0; color: #e8d9bf; max-width: 100%; overflow-wrap: anywhere; }
+.keraton-introduction { text-align: center; }
+.keraton-introduction .heritage-ornament { width: 195px; }
+.keraton-experience .keraton-couple { background: radial-gradient(ellipse at 50% 20%, #4d3320, #24190f 70%); padding: 74px 30px 82px; overflow: hidden; text-align: center; }
+.keraton-couple .heritage-decor { color: #d1ab6d; }
+.keraton-couple .heritage-pattern { opacity: .11; mask-image: linear-gradient(to right, #000, transparent 40%, transparent 60%, #000); }
+.keraton-couple .heritage-corner { width: clamp(105px, 25vw, 230px); opacity: .6; }
+.keraton-couple-heading { margin-bottom: 32px; }
+.keraton-couple-kicker { font: 500 9px/1.8 var(--font-body), Arial, sans-serif; letter-spacing: .25em; color: #d5b57f; margin: 0 0 13px; }
+.keraton-couple-title { font: 400 42px/1.08 var(--font-romantic), Georgia, serif; color: #fff0d4; margin: 0; }
+.keraton-couple-heading .heritage-ornament { width: 210px; margin: 17px auto 8px; color: #d5b57f; }
+.keraton-couple-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; max-width: 920px; margin: auto; align-items: center; }
+.keraton-person { width: min(100%, 286px); justify-self: center; text-align: center; }
+.keraton-person .heritage-portrait { --portrait-accent: #d3ae72; margin-top: 52px; margin-bottom: 46px; padding: 12px; }
+.heritage-portrait--keraton-jawa { background: linear-gradient(145deg, #755132, #2f1d0e, #826037); border-radius: 46% 46% 9px 9px; box-shadow: 0 18px 38px #140c0866; }
+.heritage-portrait--keraton-jawa::before { inset: 5px; border-color: #e7c991; opacity: .8; }
+.heritage-portrait--keraton-jawa .heritage-portrait-image { border-color: #d3ae72; border-radius: 46% 46% 7px 7px; }
+.keraton-person-photo { width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: #3d2b1c; }
+.keraton-person-photo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.6); }
+.keraton-person--groom img { object-position: 65% 32%; transform-origin: 60% 34%; }
+.keraton-person--bride img { object-position: 100% 32%; transform-origin: 64% 34%; }
+.keraton-person-role { color: #ddbd87; font: 500 9px/1.8 var(--font-body), Arial, sans-serif; letter-spacing: .2em; margin: 0 0 9px; }
+.keraton-person-name { color: #fff0d8; font: 400 34px/1.08 var(--font-romantic), Georgia, serif; margin: 0; text-wrap: balance; }
+.keraton-person-parents { font: 400 12px/1.9 var(--font-body), Arial, sans-serif; color: #ddceb6; margin: 16px 0 0; }
+.keraton-couple-join { display: flex; flex-direction: column; align-items: center; color: #d6b57e; font: italic 42px/1 var(--font-romantic), Georgia, serif; }
+.keraton-couple-join .heritage-ornament { width: 53px; margin: 8px; }
+.keraton-cinematic img { object-position: 72% center; }
+.keraton-experience .editorial-gallery-item { border: 1px solid #b5905760; padding: 6px; background: #ebdec5; border-radius: 100px 100px 3px 3px; }
+.keraton-experience .editorial-gallery-item > div { border-radius: 95px 95px 2px 2px; }
+.keraton-experience #kisah img { object-position: 75% center; }
+.keraton-experience .keraton-event-ornament { color: #a9824b; width: 240px; margin: 0 auto 40px; }
+.keraton-experience .keraton-venue-photo { border-radius: 130px 130px 4px 4px; border: 7px double #b5905773; }
+.keraton-venue-photo img { object-position: 72% center; }
+.keraton-experience #rsvp form { border: 1px solid #b5905760; padding: 26px 22px; background: #faf3e4c9; border-radius: 35px 35px 6px 6px; }
+
+@media (min-width: 600px) {
+  .heritage-portrait .heritage-portrait-leaf { width: 110px; }
+  .preview-couple { gap: 32px; margin-top: 68px; }
+  .keraton-experience .keraton-couple { padding: 96px 40px 108px; }
+  .keraton-couple-title { font-size: 54px; }
+}
+@media (min-width: 768px) {
+  .keraton-couple-grid { grid-template-columns: minmax(0, 1fr) 70px minmax(0, 1fr); gap: 24px; }
+  .keraton-person { width: min(100%, 320px); }
+  .keraton-person-name { font-size: 40px; }
+  .keraton-couple-join { gap: 24px; }
+  .keraton-hero-content { padding-block: 130px 65px; }
+  .keraton-hero-names { font-size: 86px; }
+  .keraton-hero-phrase { font-size: 27px; }
+  .keraton-hero-sigil { width: 74px; }
+  .keraton-hero-photo { object-position: center 40%; }
+  .keraton-hero-shade { background: linear-gradient(180deg, #24170f26 0%, #24170f33 32%, #24170fde 74%, #21170ff5); }
+}
+@media (min-width: 1024px) {
+  .preview--sunda .preview-hero-emblem { margin-left: 0; }
+  .heritage-corner { width: 180px; }
+}
+@media (max-width: 359px) {
+  .heritage-portrait .heritage-portrait-leaf { width: 80px; }
+  .heritage-portrait-leaf--left { left: -16px; }
+  .heritage-portrait-leaf--right { right: -16px; }
+  .keraton-experience .keraton-couple { padding-inline: 28px; }
+  .keraton-couple-title { font-size: 36px; }
+  .keraton-person-name { font-size: 30px; }
+  .keraton-hero-content { padding-inline: 27px; }
+}
+@media (max-height: 620px) {
+  .keraton-hero-sigil { width: 45px; }
+  .keraton-hero-content { padding-top: 85px; padding-bottom: 35px; }
+  .keraton-hero-names { font-size: 49px; }
+  .keraton-hero-phrase { font-size: 20px; margin-top: 8px; }
+  .keraton-hero-content .heritage-ornament--divider { margin-block: 5px; }
+}
+
+.keraton-story-vignette { position: relative; isolation: isolate; overflow: hidden; min-height: 230px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid #b5905770; border-radius: 100px 100px 5px 5px; padding: 34px 28px; background: #ede0c8; }
+.keraton-story-vignette .heritage-ornament { width: 52px; margin: 0 0 18px; position: relative; z-index: 2; }
+.keraton-story-vignette strong { position: relative; z-index: 2; font: 400 52px/1 var(--font-romantic), Georgia, serif; color: #694828; }
+.keraton-story-vignette > span { position: relative; z-index: 2; font: 400 8px/1.8 var(--font-body), Arial, sans-serif; color: #947145; letter-spacing: .1em; margin-top: 15px; text-align: center; }
+.keraton-story-vignette .heritage-corner { width: 95px; opacity: .4; }

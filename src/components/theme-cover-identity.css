@@ -1,0 +1,57 @@
+/* Covers use the same cultural vocabulary as the inner invitation. */
+.invitation-cover .heritage-decor { z-index: 1; color: var(--cover-gold); }
+.invitation-cover .heritage-decor .heritage-pattern { opacity: .1; }
+.invitation-cover .heritage-decor .heritage-corner { opacity: .6; }
+.invitation-cover .envelope-letter-motif { width: 38px; height: 40px; margin: 0 0 10px; color: #9b683e; }
+.invitation-cover .envelope-seal .heritage-ornament { width: 32px; margin: 0; color: #fff0cc; }
+.invitation-cover .envelope-textile { z-index: 3; color: var(--cover-ink); opacity: .18; mask-image: none; clip-path: polygon(0 55%,50% 90%,100% 55%,100% 100%,0 100%); }
+.invitation-cover .envelope-flap .heritage-pattern { opacity: .22; color: var(--cover-ink); mask-image: none; }
+.invitation-cover .cover-motif { width: 60px; margin: 0 auto 18px; color: #d8cfb0; }
+.invitation-cover .cover-flourish { width: 95px; color: #d5c9a7; opacity: .7; }
+.invitation-cover--jawa { --cover-paper: #e4cea6; --cover-paper-dark: #bfa075; --cover-ink: #543b23; }
+.invitation-cover--jawa .cover-shade { background: linear-gradient(180deg,#332414e8,#68462fbe,#332414ed); }
+.invitation-cover--jawa .envelope-base, .invitation-cover--jawa .envelope-pocket, .invitation-cover--jawa .envelope-pocket::before, .invitation-cover--jawa .envelope-pocket::after { border-radius: 0; }
+.invitation-cover--jawa .envelope-seal { border-radius: 0; transform: rotate(45deg); background: #805b36; }
+.invitation-cover--jawa .envelope-seal .heritage-ornament { transform: rotate(-45deg); }
+.invitation-cover--jawa .cover-open-button { border-radius: 3px; background: #e4cea6; border: 4px double #a78552; color: #483321; }
+.invitation-cover--jawa .cover-open-button:hover { background: #f4e4c8; }
+.invitation-cover--palembang .cover-backdrop::after { border: 4px double #d7b46866; }
+.invitation-cover--palembang .envelope-seal { border-radius: 0; clip-path: polygon(25% 0,75% 0,100% 25%,100% 75%,75% 100%,25% 100%,0 75%,0 25%); background: #bb924d; }
+.invitation-cover--palembang .envelope-letter { border: 4px double #bd934c; background: #fff5df; color: #58152b; }
+.invitation-cover--palembang .envelope-letter-motif { color: #b48a42; }
+.invitation-cover--palembang .envelope-address .cover-names { font-family: var(--font-display), Georgia, serif; font-size: clamp(26px,7.2vw,39px); }
+.invitation-cover--palembang .cover-open-button { border-radius: 0; background: #d8b779; color: #58152b; border: 4px double #f1d8a4; }
+.invitation-cover--palembang .cover-open-button:hover { background: #f1d8a4; }
+.invitation-cover--sunda { --cover-gold: #c9d7ae; }
+.invitation-cover--sunda .cover-backdrop::after { border-radius: 50% 50% 24px 24px / 50px 50px 24px 24px; border-color: #c9d7ae66; }
+.invitation-cover.invitation-cover--sunda .cover-card { border-radius: 50%; padding: 45px 30px; background: #203b2655; border: 1px solid #c9d7ae; box-shadow: 0 0 0 7px #c9d7ae13; }
+.invitation-cover--sunda .cover-names { font-style: italic; }
+.invitation-cover--sunda .cover-motif { color: #d8e2c2; width: 45px; }
+.invitation-cover--sunda .cover-flourish { color: #cadcb3; width: 110px; }
+.invitation-cover--sunda .cover-flourish-top { top: 18px; right: -12px; }
+.invitation-cover--sunda .cover-flourish-bottom { bottom: 18px; left: -12px; }
+.invitation-cover--mix .cover-panel-left .heritage-pattern { opacity: .16; color: #e1c79f; mask-image: none; }
+.invitation-cover--mix .cover-panel-right .heritage-pattern { opacity: .14; color: #c9d7ae; mask-image: none; }
+.invitation-cover--mix .cover-panel-flourish { width: min(80%,280px); opacity: .5; }
+.invitation-cover.invitation-cover--mix .cover-card { border: 0; border-left: 4px double #dbc19a; border-right: 4px double #b7caa3; padding: 30px 22px; background: #221f1759; }
+.invitation-cover--mix .cover-card .cover-names { font-size: clamp(44px,11vw,68px); }
+.invitation-cover--mix .cover-card .cover-names span { display: inline; font-size: .6em; padding: 0 7px; }
+.invitation-cover--mix .cover-motif { width: 86px; }
+.invitation-cover--mix .cover-traditions { font: 500 9px/1.8 var(--font-invitation-sans),Arial,sans-serif; letter-spacing: .24em; margin: 22px auto 0; color: #d8d4b9; }
+.invitation-cover--mix .cover-open-button { border-radius: 3px 28px 28px 3px; background: linear-gradient(90deg,#e4cea6,#d8e2c2); }
+@media (min-width: 768px) {
+  .invitation-cover--sunda .cover-card .cover-names { font-size: 78px; }
+  .invitation-cover--mix .cover-card .cover-names { font-size: 62px; }
+}
+@media (max-height: 700px) {
+  .invitation-cover.invitation-cover--sunda .cover-card { padding: 28px 25px; }
+  .invitation-cover .cover-motif { width: 45px; margin-bottom: 12px; }
+  .invitation-cover--mix .cover-motif { width: 65px; }
+  .invitation-cover--mix .cover-card { padding-block: 23px; }
+  .invitation-cover--mix .cover-traditions { margin-top: 16px; }
+}
+@media (max-height: 460px) and (min-width: 600px) {
+  .invitation-cover.invitation-cover--sunda .cover-card { padding: 20px; }
+  .invitation-cover .cover-motif { display: none; }
+  .invitation-cover--mix .cover-card .cover-names { font-size: 35px; }
+}
